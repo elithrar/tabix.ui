@@ -466,7 +466,7 @@ class HandsTable {
             // fixedRowsTop: 1,
             // fixedColumnsLeft: 1,
             // maxRows: 10,
-            // visibleRows:20000,
+            // visibleRows:1000,
             filters: true,
             columnSorting: true,
             sortIndicator: true,
@@ -483,225 +483,225 @@ class HandsTable {
             colHeaders: makeColumns.colHeaders,
 
 
-
-
-
-            contextMenu: {
-                items: {
-                    "columnformat": {
-                        name: 'Column format',
-                        submenu: {
-                            items: [
-                                {
-                                    name: "Reset", key: "columnformat:1", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Reset');
-                                },
-                                },
-                                {
-                                    name: "Money", key: "columnformat:2", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Money');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-                                {
-                                    name: "Human", key: "columnformat:3", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Human');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-                                {
-                                    name: "Bytes", key: "columnformat:4", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Bytes');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-                                {
-                                    name: "Percentages", key: "columnformat:5", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Percentages');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-                                {
-                                    name: "Time only", key: "columnformat:6",
-                                    callback: function (key, options, pf) {
-                                        HandsTable.makeFormat(this, 'Time');
-                                    },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'Time');
-                                    }
-                                },
-                                {
-                                    name: "Date only", key: "columnformat:7", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Date');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'Date');
-                                    }
-                                },
-                                {
-                                    name: "Date loc.", key: "columnformat:8", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'DateLoc');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'Date');
-                                    }
-                                },
-                                {
-                                    name: "Float", key: "columnformat:9", callback: function (key, options, pf) {
-                                    HandsTable.makeFormat(this, 'Float');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-                                {
-                                    name: "Heatmaps", key: "columnformat:10", callback: function (key, options, pf) {
-                                    HandsTable.makeHeatmaps(this, 'Heatmaps');
-                                },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-                                {
-                                    name: "Negative & Positive",
-                                    key: "columnformat:11",
-                                    callback: function (key, options, pf) {
-                                        HandsTable.makeHeatmaps(this, 'NegaPosi');
-                                    },
-                                    disabled: function () {
-                                        return !HandsTable.isFormatColl(this, 'numeric');
-                                    }
-                                },
-
-
-                            ]//items
-                        }//submenu
-                    },
-
-                    // -------------------- column Show Hide --------------------------------------------------------------------
-                    //
-                    // "columnshowhide": {
-                    //     name: 'ShowHide Columns',
-                    //     submenu: {
-                    //         items: [
-                    //             {
-                    //                 name: "Hide this column",
-                    //                 callback: function (key, options,pf) {
-                    //                     // HandsTable.makeStyle(this,'Normal');;
-                    //                     console.log("Hide this column");
-                    //                 },
-                    //                 key:"columnshowhide:1"
-                    //             }//Money
-                    //         ]//items
-                    //     },//submenu
-                    // },
-                    //
-
-
-                    // -------------------- Style CELL --------------------------------------------------------------------
-                    "style": {
-                        name: 'Style',
-                        submenu: {
-                            items: [
-                                {
-                                    name: "Normal",
-                                    callback: function (key, options, pf) {
-                                        HandsTable.makeStyle(this, 'Normal');
-                                    },
-                                    key: "style:normal"
-                                },
-                                {
-                                    name: 'Bold',
-                                    callback: function (key, options) {
-                                        HandsTable.makeStyle(this, 'Bold');
-                                    },
-                                    key: "style:makebold"
-
-                                },
-                                {
-                                    name: 'Red color',
-                                    callback: function (key, options) {
-                                        HandsTable.makeStyle(this, 'Red');
-                                    },
-                                    key: "style:red"
-                                },
-                                {
-                                    name: 'Green color',
-                                    callback: function (key, options) {
-                                        HandsTable.makeStyle(this, 'Green');
-                                    },
-                                    key: "style:green"
-                                }
-                            ]
-                        },
-                    },//style
-                    "hsep1": "---------",
-
-                    // -------------------- Copy to  --------------------------------------------------------------------
-                    "copyTo": {
-                        name: 'To Clipboard',
-                        submenu: {
-                            items: [
-                                {
-                                    name: "Redmine Markdown",
-                                    callback: function (key, options, pf) {
-                                        console.info("copyToClipboard");
-                                        HandsTable.copyToClipboard(this, 'Redmine');
-                                    },
-                                    key: "copyTo:1"
-                                },//
-                                {
-                                    name: "Redmine Markdown (full)",
-                                    callback: function (key, options, pf) {
-                                        console.info("copyToClipboard");
-                                        HandsTable.copyToClipboard(this, 'Redmine',true);
-                                    },
-                                    key: "copyTo:2"
-                                },//
-                                {
-                                    name: "WHERE col1 IN (val,val),col2 IN ...",
-                                    callback: function (key, options, pf) {
-                                        console.info("makeWhereIn");
-                                        HandsTable.makeWhereIn(this);
-                                    },
-                                    key: "copyTo:3"
-                                },
-                                // {
-                                //     name: "make Create Table",
-                                //     callback: function (key, options, pf) {
-                                //         HandsTable.makeCreateTable(this);
-                                //     },
-                                //     key: "copyTo:4"
-                                // }
-                            ]//items
-                        },//submenu
-                    },
-
-                    // "remove_row":{},
-                    // "col_left":{},
-                    // "col_right":{},
-                    // "remove_col":{},
-                    "hsep2": "---------",
-                    "undo": {},
-                    "make_read_only": {},
-                    "alignment": {},
-                    "hsep3": "---------",
-
-
-                }
-            },
-            // colWidths:handsontable.colWidths;
-            contextMenuCopyPaste: {
-                swfPath: '/bower_components/zeroclipboard/dist/ZeroClipboard.swf'
-            },
+            contextMenu: false,
+            //
+            //
+            // contextMenu: {
+            //     items: {
+            //         "columnformat": {
+            //             name: 'Column format',
+            //             submenu: {
+            //                 items: [
+            //                     {
+            //                         name: "Reset", key: "columnformat:1", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Reset');
+            //                     },
+            //                     },
+            //                     {
+            //                         name: "Money", key: "columnformat:2", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Money');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Human", key: "columnformat:3", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Human');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Bytes", key: "columnformat:4", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Bytes');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Percentages", key: "columnformat:5", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Percentages');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Time only", key: "columnformat:6",
+            //                         callback: function (key, options, pf) {
+            //                             HandsTable.makeFormat(this, 'Time');
+            //                         },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'Time');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Date only", key: "columnformat:7", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Date');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'Date');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Date loc.", key: "columnformat:8", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'DateLoc');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'Date');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Float", key: "columnformat:9", callback: function (key, options, pf) {
+            //                         HandsTable.makeFormat(this, 'Float');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Heatmaps", key: "columnformat:10", callback: function (key, options, pf) {
+            //                         HandsTable.makeHeatmaps(this, 'Heatmaps');
+            //                     },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //                     {
+            //                         name: "Negative & Positive",
+            //                         key: "columnformat:11",
+            //                         callback: function (key, options, pf) {
+            //                             HandsTable.makeHeatmaps(this, 'NegaPosi');
+            //                         },
+            //                         disabled: function () {
+            //                             return !HandsTable.isFormatColl(this, 'numeric');
+            //                         }
+            //                     },
+            //
+            //
+            //                 ]//items
+            //             }//submenu
+            //         },
+            //
+            //         // -------------------- column Show Hide --------------------------------------------------------------------
+            //         //
+            //         // "columnshowhide": {
+            //         //     name: 'ShowHide Columns',
+            //         //     submenu: {
+            //         //         items: [
+            //         //             {
+            //         //                 name: "Hide this column",
+            //         //                 callback: function (key, options,pf) {
+            //         //                     // HandsTable.makeStyle(this,'Normal');;
+            //         //                     console.log("Hide this column");
+            //         //                 },
+            //         //                 key:"columnshowhide:1"
+            //         //             }//Money
+            //         //         ]//items
+            //         //     },//submenu
+            //         // },
+            //         //
+            //
+            //
+            //         // -------------------- Style CELL --------------------------------------------------------------------
+            //         "style": {
+            //             name: 'Style',
+            //             submenu: {
+            //                 items: [
+            //                     {
+            //                         name: "Normal",
+            //                         callback: function (key, options, pf) {
+            //                             HandsTable.makeStyle(this, 'Normal');
+            //                         },
+            //                         key: "style:normal"
+            //                     },
+            //                     {
+            //                         name: 'Bold',
+            //                         callback: function (key, options) {
+            //                             HandsTable.makeStyle(this, 'Bold');
+            //                         },
+            //                         key: "style:makebold"
+            //
+            //                     },
+            //                     {
+            //                         name: 'Red color',
+            //                         callback: function (key, options) {
+            //                             HandsTable.makeStyle(this, 'Red');
+            //                         },
+            //                         key: "style:red"
+            //                     },
+            //                     {
+            //                         name: 'Green color',
+            //                         callback: function (key, options) {
+            //                             HandsTable.makeStyle(this, 'Green');
+            //                         },
+            //                         key: "style:green"
+            //                     }
+            //                 ]
+            //             },
+            //         },//style
+            //         "hsep1": "---------",
+            //
+            //         // -------------------- Copy to  --------------------------------------------------------------------
+            //         "copyTo": {
+            //             name: 'To Clipboard',
+            //             submenu: {
+            //                 items: [
+            //                     {
+            //                         name: "Redmine Markdown",
+            //                         callback: function (key, options, pf) {
+            //                             console.info("copyToClipboard");
+            //                             HandsTable.copyToClipboard(this, 'Redmine');
+            //                         },
+            //                         key: "copyTo:1"
+            //                     },//
+            //                     {
+            //                         name: "Redmine Markdown (full)",
+            //                         callback: function (key, options, pf) {
+            //                             console.info("copyToClipboard");
+            //                             HandsTable.copyToClipboard(this, 'Redmine',true);
+            //                         },
+            //                         key: "copyTo:2"
+            //                     },//
+            //                     {
+            //                         name: "WHERE col1 IN (val,val),col2 IN ...",
+            //                         callback: function (key, options, pf) {
+            //                             console.info("makeWhereIn");
+            //                             HandsTable.makeWhereIn(this);
+            //                         },
+            //                         key: "copyTo:3"
+            //                     },
+            //                     // {
+            //                     //     name: "make Create Table",
+            //                     //     callback: function (key, options, pf) {
+            //                     //         HandsTable.makeCreateTable(this);
+            //                     //     },
+            //                     //     key: "copyTo:4"
+            //                     // }
+            //                 ]//items
+            //             },//submenu
+            //         },
+            //
+            //         // "remove_row":{},
+            //         // "col_left":{},
+            //         // "col_right":{},
+            //         // "remove_col":{},
+            //         "hsep2": "---------",
+            //         "undo": {},
+            //         "make_read_only": {},
+            //         "alignment": {},
+            //         "hsep3": "---------",
+            //
+            //
+            //     }
+            // },
+            // // colWidths:handsontable.colWidths;
+            // contextMenuCopyPaste: {
+            //     swfPath: '/bower_components/zeroclipboard/dist/ZeroClipboard.swf'
+            // },
             // observeDOMVisibility:true,
             // observeChanges:true,
 

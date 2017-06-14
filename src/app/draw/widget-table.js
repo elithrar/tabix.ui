@@ -72,7 +72,6 @@ class WidgetTable extends Widget {
             this.sizeX = 6;
             this.sizeY = 4;
         }
-
         // overWrite
         if (_.isNumber(sizeX)) {
             this.sizeX = sizeX;
@@ -102,14 +101,14 @@ class WidgetTable extends Widget {
         if (!this.table) return;
 
         // console.log("onResize HotTable,this.table.width",this.table.width,this.table.height);
-        let i = this.getInstanceHandsontable();
+        // let i = this.getInstanceHandsontable();
         if (i) {
             // i.updateSettings({
             //     height: this.table.height, // тут нужно получить размер контейнера gridster и передать его в HotTable
             //     width: this.table.width
             //
             // });
-            i.render();
+            // i.render();
         }
         // -----------------------------------------------------------------
         // Для hot-table изменим парамер ширины, финт/костыль - хз
