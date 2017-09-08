@@ -85,7 +85,8 @@
             </md-tab-label>
 
             <md-tab-body>
-                <div ng-init="widgets = resultContainer.widgets.tables" ng-include="'app/render/WidgetsList.html'" ng-if="vars.active.table"></div>
+                <!--<div ng-init="widgets = resultContainer.widgets.tables" ng-include="'app/render/WidgetsListGrids.html'" ng-if="vars.active.table"></div>-->
+                <div ng-init="widgets = resultContainer.widgets.tables" ng-include="'app/render/WidgetsListFlat.html'" ng-if="vars.active.table"></div>
 
             </md-tab-body>
         </md-tab>
@@ -97,7 +98,7 @@
                 Draw <i class="mdi mdi-18px mdi-chart-bar"></i>
             </md-tab-label>
             <md-tab-body>
-                <div ng-init="widgets = resultContainer.widgets.draw" ng-include="'app/render/WidgetsList.html'" ng-if="vars.active.draw"></div>
+                <div ng-init="widgets = resultContainer.widgets.draw" ng-include="'app/render/WidgetsListGrids.html'" ng-if="vars.active.draw"></div>
             </md-tab-body>
         </md-tab>
 
@@ -108,7 +109,7 @@
                 Pivot  <i class="mdi mdi-18px mdi-palette-advanced"></i>
             </md-tab-label>
             <md-tab-body >
-                <div ng-init="widgets = resultContainer.widgets.pivot" ng-include="'app/render/WidgetsList.html'" ng-if="vars.active.pivot"></div>
+                <div ng-init="widgets = resultContainer.widgets.pivot" ng-include="'app/render/WidgetsListGrids.html'" ng-if="vars.active.pivot"></div>
             </md-tab-body>
         </md-tab>
 
@@ -118,7 +119,7 @@
                 Stats <i class="mdi mdi-18px mdi-school"></i>
             </md-tab-label>
             <md-tab-body>
-                <div ng-init="widgets = resultContainer.widgets.stats" ng-include="'app/render/WidgetsList.html'"
+                <div ng-init="widgets = resultContainer.widgets.stats" ng-include="'app/render/WidgetsListGrids.html'"
                      ng-if="vars.active.stats"></div>
             </md-tab-body>
         </md-tab>

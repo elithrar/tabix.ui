@@ -81,6 +81,8 @@ class WidgetTable extends Widget {
             this.sizeY = sizeY;
         }
 
+        this.table.height='100px';
+        this.table.width='100px';
         this.init = true;
     }
 

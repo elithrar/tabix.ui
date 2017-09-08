@@ -1,0 +1,18 @@
+<div class="row"  ng-repeat="w in widgets">
+
+    <!--<div class="widget-box widget-row col-md-12" >-->
+
+                        <draw-widget
+                                style="display: block;"
+                                widget="w" ng-if="w.init && !w.error"
+                                isdark="vars.isDark" class="widget-{{w.type}}" events="events">
+                        </draw-widget>
+
+
+                        <div ng-bind-html="w.error" class="grid-monospace" ng-if="w.error"></div>
+                        <div ng-bind-html="w.text" class="grid-monospace" ng-if="w.text"></div>
+                        <span ng-if="w.empty">{{'нет данных' | translate}}</span>
+
+
+    <!--</div>-->
+</div>
