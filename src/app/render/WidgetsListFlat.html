@@ -1,9 +1,10 @@
-<div class="row"  ng-repeat="w in widgets">
+<div  class="boase">
+<div style="border: 1px solid silver"  ng-repeat="w in widgets">
 
     <!--<div class="widget-box widget-row col-md-12" >-->
 
-                        <draw-widget
-                                style="display: block;"
+                        <draw-widget class="wwwboase"
+                                style="display: block; max-height: 300px;"
                                 widget="w" ng-if="w.init && !w.error"
                                 isdark="vars.isDark" class="widget-{{w.type}}" events="events">
                         </draw-widget>
@@ -15,4 +16,5 @@
 
 
     <!--</div>-->
+</div>
 </div>
